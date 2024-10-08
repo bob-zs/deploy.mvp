@@ -1,22 +1,22 @@
-const path = require('path');
-const JavaScriptObfuscator = require('webpack-obfuscator');
+const path = require("path");
+const JavaScriptObfuscator = require("webpack-obfuscator");
 
 module.exports = (_env, argv) => {
-  const isProduction = argv.mode === 'production';
+  const isProduction = argv.mode === "production";
 
   return {
-    mode: isProduction ? 'production' : 'development',
-    entry: './src/index.js',
+    mode: isProduction ? "production" : "development",
+    entry: "./src/index.js",
     output: {
-      filename: 'bundle.js',
-      path: path.resolve(__dirname, 'dist'),
+      filename: "bundle.js",
+      path: path.resolve(__dirname, "dist"),
       clean: true,
     },
     module: {
       rules: [
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+          use: ["style-loader", "css-loader"],
         },
       ],
     },
@@ -30,6 +30,6 @@ module.exports = (_env, argv) => {
           ]
         : []),
     ],
-    devtool: isProduction ? 'source-map' : 'inline-source-map',
+    devtool: isProduction ? "source-map" : "inline-source-map",
   };
 };
