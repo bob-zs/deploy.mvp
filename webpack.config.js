@@ -6,7 +6,7 @@ module.exports = (_env, argv) => {
 
   return {
     mode: isProduction ? 'production' : 'development',
-    entry: './src/index.js', // Your app's main JS file
+    entry: './src/index.js',
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist'),
