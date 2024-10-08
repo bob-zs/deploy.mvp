@@ -1,0 +1,64 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run unit test
+        run: pnpm test
+
+      - name: Security check
+        run: pnpm audit
+
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Code
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Format check
+        run: pnpm run format
+
+      - name: Lint test
+        run: pnpm run lint
