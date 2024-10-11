@@ -4,7 +4,7 @@
   "description": "A project for deploying MVPs with a robust build and test setup.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=development --watch",
+    "build:dev": "webpack --mode=development --watch",
     "build:prod": "webpack --mode=production",
     "format": "prettier --check 'server/**/*' 'src/**/*' 'webpack.config.js' 'tests/*' 'eslint.config.mjs' || echo '⚠️  Code style issues found. Run `pnpm run format:fix` to fix them.'",
     "format:fix": "prettier --write 'server/**/*' 'src/**/*' 'webpack.config.js' 'tests/*' 'eslint.config.mjs'",
