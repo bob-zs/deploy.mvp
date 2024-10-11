@@ -22,6 +22,5 @@ RUN pnpm run build:prod
 # Expose the port the application listens on
 EXPOSE 3000
 
-# Define the entry point and command to start your Node.js application
-ENTRYPOINT ["node"]
-CMD ["index.js"] # Adapt this based on your actual start script
+# Define the command to start your Node.js application with proper JSON syntax
+ENTRYPOINT ["node", "index.js"]
