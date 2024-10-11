@@ -13,9 +13,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Check out code
-        uses: actions/checkout@v4
-
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
