@@ -39,16 +39,5 @@ jobs:
       - name: Build
         run: pnpm run build:prod
 
-      # - id: 'auth'
-      #   uses: 'google-github-actions/auth@v2'
-      #   with:
-      #     credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
-
-      # - name: 'Set up Cloud SDK'
-      #   uses: 'google-github-actions/setup-gcloud@v2'
-
-      # - name: 'Use gcloud CLI'
-      #   run: 'gcloud info'
-
-      # - name: Push to Google Artifact
-      #   run: echo 'would have pushed to google artifact'
+      - name: Trigger Render Deploy      
+        run: curl -X POST -d '' ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
